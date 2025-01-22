@@ -1,0 +1,214 @@
+/* Base Styles */
+body {
+    font-family: "Plus Jakarta Sans", serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+}
+
+/* Navbar Styles */
+.navbar {
+    height: 5rem;
+    background-color: white !important; /* White background always */
+    transition: background-color 0.3s ease-in-out; /* Smooth background color change */
+}
+
+.fa-compass {
+    color: #fe424d;
+    font-size: 2rem; /* Compass icon styling */
+}
+
+.nav-link {
+    color: #222222 !important; /* Navbar link color */
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #fe424d !important; /* Highlight color on hover */
+}
+
+/* Navbar Collapse (Mobile View) */
+.navbar-collapse {
+    background-color: white; /* Background for the collapsed menu */
+}
+
+.navbar-toggler {
+    background-color: transparent; /* Transparent background for toggle button */
+    border: none; /* Remove border */
+}
+
+.navbar-toggler-icon {
+    color: #222; /* Toggle icon color */
+}
+
+/* Footer Styles */
+.f-info {
+    text-align: center;
+    height: 8rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+    background-color: #ebebeb;
+}
+
+.f-info-links,
+.f-info-socials {
+    width: 100%; /* Full-width content */
+}
+
+.f-info-links a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.f-info-socials,
+.f-info-brand {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials i {
+    margin-right: 1rem;
+}
+
+/* Card Styles */
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.sep-img {
+    width: 600px;
+    height: 50vh !important; /* Specific height for images */
+}
+
+.card-img-top {
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body {
+    padding: 0 !important; /* Removes padding */
+}
+
+.card-text p {
+    font-weight: 400;
+}
+
+.listing-link {
+    text-decoration: none; /* No underline on links */
+}
+
+.card-img-overlay {
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Smooth transition for hover */
+}
+
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: bisque; /* Light overlay color */
+}
+
+/* Buttons */
+.add-btn, 
+.edit-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+.btns {
+    display: flex;
+    flex-direction: row; /* Buttons in a row */
+}
+
+/* Map Styles */
+#map {
+    width: 100%; /* Full width for the map */
+    height: 400px; /* Default height */
+     /* Center map */
+    /* Includes padding and border */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Images */
+    .sep-img {
+        width: 100%; /* Full width for small screens */
+        height: 30vh !important; /* Smaller height */
+    }
+
+    .card-img-top {
+        height: 200px !important; /* Smaller height for cards */
+    }
+
+    /* Buttons */
+    .btns {
+        flex-direction: column; /* Stack buttons */
+        align-items: center;
+    }
+
+    /* Navbar */
+    .navbar {
+        height: 5rem;
+    }
+
+    /* Map */
+    #map {
+        height: 300px; /* Adjust height for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Images */
+    .sep-img {
+        height: 25vh !important; /* Further reduce height for small screens */
+    }
+
+    .card-img-top {
+        height: 150px !important; /* Smaller height for cards */
+    }
+
+    /* Navbar */
+    .navbar {
+        height: 4rem; /* Smaller navbar height */
+    }
+
+    .fa-compass {
+        font-size: 1.5rem; /* Adjust icon size */
+    }
+
+    .nav-link {
+        font-size: 0.9rem; /* Smaller font size for links */
+    }
+
+    /* Footer */
+    .f-info {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem; /* Adjust footer layout */
+    }
+
+    .f-info-links a,
+    .f-info-socials {
+        font-size: 1rem; /* Smaller font size */
+    }
+
+    /* Map */
+    #map {
+        height: 250px; /* Smaller height for very small screens */
+    }
+}

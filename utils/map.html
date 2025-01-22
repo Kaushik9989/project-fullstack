@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet" />
+  <style>
+    #map { width: 100%; height: 500px; }
+  </style>
+  <title>OpenCage Geocoding with Styled Map</title>
+</head>
+<body>
+  <div id="map"></div>
+  <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
+  <script>
+    // Initialize the map with a route-friendly style
+    const map = new maplibregl.Map({
+      container: 'map',
+      style: 'https://api.maptiler.com/maps/streets/style.json?key=7UuNfgRZLlMkrzkU94Rx	',
+      center: [0, 0], // Initial center
+      zoom: 2, // Initial zoom
+    });
+
+    // OpenCage Geocoding Function
+    async function geocode(address) {
+      const apiKey = '5a633cc5d12b453684a31e7be04023ef'; // Replace with your OpenCage API key
+      const url = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&key=${apiKey}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data.results && data.results.length > 0) {
+        const { lat, lng } = data.results[0].geometry;
+        return { lat, lng };
+      } else {
+        throw new Error('Location not found');
+      }
+    }
+
+    // Add Marker for Geocoded Address
+    async function addMarkerForAddress(address) {
+      try {
+        const { lat, lng } = await geocode(address);
+        new maplibregl.Marker()
+          .setLngLat([lng, lat])
+          .addTo(map);
+        map.flyTo({ center: [lng, lat], zoom: 14 });
+      } catch (error) {
+        console.error('Error geocoding address:', error);
+      }
+    }
+
+    // Example: Add marker for "Berlin"
+    addMarkerForAddress('Hyderabad');
+  </script>
+</body>
+</html>

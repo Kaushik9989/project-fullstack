@@ -1,0 +1,123 @@
+<style>
+  #filters{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    
+  }
+  .filter{
+    text-align: center;
+    margin-top: 1rem;
+    opacity: 0.7;
+  }
+  .filter:hover{
+    opacity: 2  ;
+    cursor: pointer;
+  }
+  .filter p {
+    font-size: 0.8rem;
+  }
+  .tax-info{
+    display: none;
+  }
+  .tax-toggle{
+    border:1px solid black;
+    border-radius: 1rem;
+    height: 3.25rem;
+    padding: 0.8rem;
+  }
+</style>
+  <div id="filters">
+    <form method="GET" action="/listings" >
+      <button class="btn"><div class="filter">
+        <div><i class="fa-solid fa-house"></i></div>
+        <div><p>Home</p></div>
+      </div>
+    </button>
+    </form>
+    <form method="GET" action="/listings/category/Trending" >
+    <button class="btn"><div class="filter">
+      <div><i class="fa-solid fa-fire"></i></div>
+      <div><p>Trending</p></div>
+    </div>
+  </button>
+  </form>
+  <form method="GET" action="/listings/category/Rooms">
+    <button class="btn">
+    <div class="filter">
+      <div><i class="fa-solid fa-bed"></i></i></div>
+      <div><p>Rooms</p></div>
+    </div>
+  </button>
+</form>
+    <form method="GET" action="/listings/category/Beach-side">
+      <button class="btn">
+    <div class="filter">
+      <div><i class="fa-solid fa-umbrella-beach"></i></div>
+      <div><p>Beach-side Villas</p></div>
+    </div>
+  </button>
+</form>
+    <form method="GET" action="/listings/category/Hotels">
+      <button class="btn">
+    <div class="filter">
+      <div><i class="fa-solid fa-hotel"></i></div>
+      <div><p>Hotels</p></div>
+    </div>
+  </button>
+</form>
+    <form method="GET" action="/listings/category/Mountain-View">
+      <button class="btn">
+    <div class="filter">
+      <div><i class="fa-solid fa-mountain"></i></div>
+      <div><p>Mountain-View Cabins</p></div>
+    </div>
+  </button>
+</form>
+    <form method="GET" action="/listings/category/Boat-House">
+      <button class="btn">
+    <div class="filter">
+      <div><i class="fa-solid fa-sailboat"></i></div>
+      <div><p>Boat Houses</p></div>
+    </div>
+  </button>
+</form>
+    <form method="GET" action="/listings/category/5-star">
+      <button class="btn">
+    <div class="filter">
+      <div><i class="fa-solid fa-star"></i></div>
+      <div><p>5-Star Hotels</p></div>
+    </div>
+  </button>
+</form>
+    <form method="GET" action="/listings/category/Forest-Houses">
+      <button class="btn">
+    <div class="filter">
+      <div><i class="fa-solid fa-tree"></i></div>
+      <div><p>Forest-Houses</p></div>
+    </div>
+  </button>
+</form>
+<div class="tax-toggle ">
+  <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+    <label class="form-check-label" for="flexSwitchCheckDefault">Display after Taxes</label>
+  </div>
+</div>
+  </div>
+
+  <script>
+    let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+    taxSwitch.addEventListener("click",()=>{
+      let taxinfo = document.getElementsByClassName("tax-info");
+      for(info of taxinfo){
+        if(info.style.display != "inline"){
+          info.style.display="inline";
+        }else{
+          info.style.display="none";
+        }
+        
+      }
+    })
+  </script>
