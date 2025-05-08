@@ -86,4 +86,5 @@ This project is licensed under the ISC License.
 - Express.js framework
 - MongoDB and Mongoose
 - Cloudinary for image hosting
-- MapLibre GL for mapping functionality 
+- MapLibre GL for mapping functionality
+  ![image](https://github.com/user-attachments/assets/5065f8f2-9ffa-4acd-b01b-056bbf862865)
